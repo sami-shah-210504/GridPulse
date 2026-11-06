@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets
+.env
+*.pem
+*.key
+
+# Data & models (tracked by DVC later, NOT Git)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+models/
+mlruns/
+
+# Misc
+.DS_Store
+.idea/
+.vscode/
