@@ -12,10 +12,6 @@ venv/
 *.key
 
 # Data & models (tracked by DVC later, NOT Git)
-data/raw/*
-data/processed/*
-!data/raw/.gitkeep
-!data/processed/.gitkeep
 /models/
 /artifacts/
 mlruns/

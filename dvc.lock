@@ -1,0 +1,22 @@
+schema: '2.0'
+stages:
+  validate:
+    cmd: python -m src.data.validation
+    deps:
+    - path: data/raw/energy_raw.csv
+      hash: md5
+      md5: 6c485d7f29f569a5c88aded2d20b109a
+      size: 848955
+    - path: src/data/validation.py
+      hash: md5
+      md5: 28fa2cb511ce3d02e493f234c3c7b8ff
+      size: 4102
+    - path: src/utils/config.py
+      hash: md5
+      md5: 4ebe94bdeef9168a3c79a099fa352b8f
+      size: 592
+    outs:
+    - path: reports/validation_report.json
+      hash: md5
+      md5: 5f7c4e2f38654e48932ce970b3236174
+      size: 585

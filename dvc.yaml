@@ -1,0 +1,10 @@
+stages:
+  validate:
+    cmd: python -m src.data.validation
+    deps:
+      - data/raw/energy_raw.csv
+      - src/data/validation.py
+      - src/utils/config.py
+    outs:
+      - reports/validation_report.json:
+          cache: false

@@ -93,7 +93,7 @@ Some folders are still empty. They get filled as each part of the project is bui
 
 - [x] Project setup and repository structure
 - [x] Data ingestion and validation
-- [ ] DVC data versioning and DagsHub
+- [x] DVC data versioning and DagsHub
 - [ ] Preprocessing and feature engineering
 - [ ] Feast feature store
 - [ ] Training, tuning and MLflow tracking
@@ -106,3 +106,12 @@ Some folders are still empty. They get filled as each part of the project is bui
 - [ ] AWS deployment
 - [ ] Monitoring (Prometheus, Grafana, Evidently)
 - [ ] Automated retraining, promotion and rollback
+## Data versioning (DVC + DagsHub)
+```bash
+dvc remote modify origin --local auth basic
+dvc remote modify origin --local user <your-dagshub-username>
+dvc remote modify origin --local password <your-dagshub-token>
+dvc pull        # download the dataset matching this commit
+dvc repro       # re-run the pipeline stages
+```
+See `docs/dvc_workflow.md` for versioning and merge-conflict handling.
