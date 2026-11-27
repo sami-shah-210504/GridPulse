@@ -1,0 +1,5 @@
+outs:
+- md5: 6c485d7f29f569a5c88aded2d20b109a
+  size: 848955
+  hash: md5
+  path: energy_raw.csv
