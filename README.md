@@ -50,6 +50,10 @@ Run all commands from the repo root with the virtual environment active.
 ```bash
 python -m src.data.ingestion     # download raw demand + weather -> data/raw/energy_raw.csv
 python -m src.data.validation    # validate the raw data, writes reports/validation_report.json
+python -m src.features.preprocessing  # features -> data/processed/energy_features.parquet
+(cd feature_store/feature_repo && feast apply)   # register features
+python -m feature_store.materialize   # offline -> online store
+python -m feature_store.retrieve      # retrieval demo
 ```
 
 Both commands read their settings from `configs/pipeline_config.yaml` (region, date range, weather location, file paths). Validation exits with an error if the data fails a mandatory check, so a bad dataset never reaches training.
@@ -95,7 +99,7 @@ Some folders are still empty. They get filled as each part of the project is bui
 - [x] Data ingestion and validation
 - [x] DVC data versioning and DagsHub
 - [x] Preprocessing and feature engineering
-- [ ] Feast feature store
+- [x] Feast feature store
 - [ ] Training, tuning and MLflow tracking
 - [ ] Automated tests
 - [ ] Flask API and BentoML serving
