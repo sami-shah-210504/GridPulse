@@ -17,4 +17,4 @@ split:
   val_frac: 0.15
 model:
   target: "demand_mwh"
-  min_r2: 0.80
+  min_r2: 0.95
