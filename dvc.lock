@@ -5,8 +5,8 @@ stages:
     deps:
     - path: data/raw/energy_raw.csv
       hash: md5
-      md5: 6c485d7f29f569a5c88aded2d20b109a
-      size: 848955
+      md5: 81277bacd615a4da603e280064d4d62a
+      size: 1058228
     - path: src/data/validation.py
       hash: md5
       md5: 317aff7df5d0d401f334b12527a2a9d0
@@ -18,18 +18,18 @@ stages:
     outs:
     - path: reports/validation_report.json
       hash: md5
-      md5: a5650fe08570ec6213625d7164dfb6be
+      md5: 66f15f640d216d2741811c0b551da086
       size: 533
   preprocess:
     cmd: python -m src.features.preprocessing
     deps:
     - path: data/raw/energy_raw.csv
       hash: md5
-      md5: 6c485d7f29f569a5c88aded2d20b109a
-      size: 848955
+      md5: 81277bacd615a4da603e280064d4d62a
+      size: 1058228
     - path: reports/validation_report.json
       hash: md5
-      md5: a5650fe08570ec6213625d7164dfb6be
+      md5: 66f15f640d216d2741811c0b551da086
       size: 533
     - path: src/features/preprocessing.py
       hash: md5
@@ -59,5 +59,5 @@ stages:
     outs:
     - path: data/processed/energy_features.parquet
       hash: md5
-      md5: f0bf35064564b64dde0449af01b3c9c0
-      size: 1405333
+      md5: c08a803bbefe28d3112fa2f85a49901d
+      size: 1696280
