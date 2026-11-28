@@ -5,7 +5,6 @@ never reaches training. A JSON report is always written for auditing.
 """
 import argparse
 import json
-from datetime import datetime, timezone
 
 import pandas as pd
 import pandera as pa
@@ -43,7 +42,6 @@ def validate(df: pd.DataFrame) -> dict:
     """Run all checks. Returns a report dict; raises DataValidationError on failure."""
     failures = []
     report = {
-        "checked_at": datetime.now(timezone.utc).isoformat(),
         "rows": int(len(df)),
         "columns": list(df.columns),
     }

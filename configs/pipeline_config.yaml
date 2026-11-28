@@ -1,11 +1,20 @@
 data:
-  eia_region: "CISO"        # California ISO
+  eia_region: "CISO"
   start_date: "2023-01-01"
   end_date: "2024-12-31"
-  latitude: 37.77           # weather location (San Francisco)
+  latitude: 37.77
   longitude: -122.42
   raw_path: "data/raw/energy_raw.csv"
-  processed_path: "data/processed/energy_features.csv"
+  processed_path: "data/processed/energy_features.parquet"
+features:
+  timezone: "America/Los_Angeles"
+  lags: [1, 2, 3, 24, 48, 168]
+  rolling_windows: [24, 168]
+  base_temp_c: 18
+  max_interp_gap_hours: 6
+split:
+  train_frac: 0.70
+  val_frac: 0.15
 model:
   target: "demand_mwh"
-  min_r2: 0.80              # quality gate, used later
+  min_r2: 0.80
