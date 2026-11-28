@@ -9,8 +9,8 @@ stages:
       size: 848955
     - path: src/data/validation.py
       hash: md5
-      md5: 28fa2cb511ce3d02e493f234c3c7b8ff
-      size: 4102
+      md5: 317aff7df5d0d401f334b12527a2a9d0
+      size: 4000
     - path: src/utils/config.py
       hash: md5
       md5: 4ebe94bdeef9168a3c79a099fa352b8f
@@ -18,5 +18,46 @@ stages:
     outs:
     - path: reports/validation_report.json
       hash: md5
-      md5: 5f7c4e2f38654e48932ce970b3236174
-      size: 585
+      md5: a5650fe08570ec6213625d7164dfb6be
+      size: 533
+  preprocess:
+    cmd: python -m src.features.preprocessing
+    deps:
+    - path: data/raw/energy_raw.csv
+      hash: md5
+      md5: 6c485d7f29f569a5c88aded2d20b109a
+      size: 848955
+    - path: reports/validation_report.json
+      hash: md5
+      md5: a5650fe08570ec6213625d7164dfb6be
+      size: 533
+    - path: src/features/preprocessing.py
+      hash: md5
+      md5: 2d5bfea3ce8961faa6b64678876ec979
+      size: 6608
+    - path: src/utils/config.py
+      hash: md5
+      md5: 4ebe94bdeef9168a3c79a099fa352b8f
+      size: 592
+    params:
+      configs/pipeline_config.yaml:
+        data.eia_region: CISO
+        features:
+          timezone: America/Los_Angeles
+          lags:
+          - 1
+          - 2
+          - 3
+          - 24
+          - 48
+          - 168
+          rolling_windows:
+          - 24
+          - 168
+          base_temp_c: 18
+          max_interp_gap_hours: 6
+    outs:
+    - path: data/processed/energy_features.parquet
+      hash: md5
+      md5: f0bf35064564b64dde0449af01b3c9c0
+      size: 1405333
