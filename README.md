@@ -94,7 +94,7 @@ Some folders are still empty. They get filled as each part of the project is bui
 - [x] Project setup and repository structure
 - [x] Data ingestion and validation
 - [x] DVC data versioning and DagsHub
-- [ ] Preprocessing and feature engineering
+- [x] Preprocessing and feature engineering
 - [ ] Feast feature store
 - [ ] Training, tuning and MLflow tracking
 - [ ] Automated tests
