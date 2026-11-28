@@ -8,3 +8,17 @@ stages:
     outs:
       - reports/validation_report.json:
           cache: false
+
+  preprocess:
+    cmd: python -m src.features.preprocessing
+    deps:
+      - data/raw/energy_raw.csv
+      - reports/validation_report.json
+      - src/features/preprocessing.py
+      - src/utils/config.py
+    params:
+      - configs/pipeline_config.yaml:
+          - data.eia_region
+          - features
+    outs:
+      - data/processed/energy_features.parquet
